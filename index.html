@@ -1,168 +1,371 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artimola – Arte que nasce da quebrada</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Nunito:wght@400;700;900;1000&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="CSS/estilo.css">
-    </head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Artimola – Convênio para artistas iniciantes de 16 a 25 anos, periféricos, de baixa renda ou da comunidade LGBTQIAP+." />
+
+  <title>Artimola – Arte que nasce da quebrada</title>
+
+  <!-- ① Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Nunito:wght@400;700;900;1000&display=swap" rel="stylesheet" />
+
+  <!-- ② Bootstrap 5 CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- ③ Estilos de marca (overrides + animações) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
 
 <body>
 
-    <!-- ═══ NAVBAR ═══ -->
-    <nav>
-        <div class="logo">Arti<span>mola</span> ✦</div>
-        <ul class="nav-links">
-            <li><a href="#" class="active">Início</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">O Convênio</a></li>
-            <li><a href="#">Benefícios</a></li>
-            <li><a href="#">Como Participar</a></li>
-            <li><a href="#">Artistas</a></li>
-            <li><a href="#">Eventos</a></li>
-            <li><a href="#">Contato</a></li>
-        </ul>
-        <a href="#" class="btn-nav">Quero Participar ↗</a>
+  <!-- ══════════════════════════════════════════════════════
+       HEADER – Bootstrap navbar responsiva com offcanvas
+       Igual em todas as páginas: basta copiar este bloco.
+       ══════════════════════════════════════════════════════ -->
+  <header>
+    <nav class="site-header navbar navbar-expand-lg sticky-top py-2" aria-label="Navegação principal">
+      <div class="container-fluid px-0">
+
+        <!-- Logo -->
+        <a href="index.html" class="logo navbar-brand ms-0" aria-label="Artimola – página inicial">
+          Arti<span>mola</span> ✦
+        </a>
+
+        <!-- Botão mobile toggler -->
+        <button
+          class="navbar-toggler me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#navOffcanvas"
+          aria-controls="navOffcanvas"
+          aria-label="Abrir menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu desktop (lg+) -->
+        <div class="collapse navbar-collapse" id="navbarDesktop">
+          <ul class="nav-links navbar-nav mx-auto gap-1">
+            <li class="nav-item"><a href="index.html"           class="nav-link active" aria-current="page">Início</a></li>
+            <li class="nav-item"><a href="sobre.html"           class="nav-link">Sobre</a></li>
+            <li class="nav-item"><a href="convenio.html"        class="nav-link">O Convênio</a></li>
+            <li class="nav-item"><a href="beneficios.html"      class="nav-link">Benefícios</a></li>
+            <li class="nav-item"><a href="como-participar.html" class="nav-link">Como Participar</a></li>
+            <li class="nav-item"><a href="artistas.html"        class="nav-link">Artistas</a></li>
+            <li class="nav-item"><a href="eventos.html"         class="nav-link">Eventos</a></li>
+            <li class="nav-item"><a href="contato.html"         class="nav-link">Contato</a></li>
+          </ul>
+          <a href="como-participar.html" class="btn-lime d-none d-lg-inline-flex">Quero Participar ↗</a>
+        </div>
+
+      </div>
     </nav>
 
-    <!-- ═══ HERO ═══ -->
-    <section class="hero">
+    <!-- Offcanvas mobile (sm / md) -->
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="navOffcanvas"
+      aria-labelledby="navOffcanvasLabel"
+      style="background: var(--purple-dark);"
+    >
+      <div class="offcanvas-header">
+        <span class="logo" id="navOffcanvasLabel" style="color:#fff;">Arti<span>mola</span> ✦</span>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column gap-2 pt-2">
+        <a href="index.html"           class="nav-link text-white fw-bold fs-5">Início</a>
+        <a href="sobre.html"           class="nav-link text-white fw-semibold">Sobre</a>
+        <a href="convenio.html"        class="nav-link text-white fw-semibold">O Convênio</a>
+        <a href="beneficios.html"      class="nav-link text-white fw-semibold">Benefícios</a>
+        <a href="como-participar.html" class="nav-link text-white fw-semibold">Como Participar</a>
+        <a href="artistas.html"        class="nav-link text-white fw-semibold">Artistas</a>
+        <a href="eventos.html"         class="nav-link text-white fw-semibold">Eventos</a>
+        <a href="contato.html"         class="nav-link text-white fw-semibold">Contato</a>
+        <hr class="border-secondary my-2" />
+        <a href="como-participar.html" class="btn-lime text-center mt-2">Quero Participar ↗</a>
+      </div>
+    </div>
+  </header>
 
-        <!-- decorative elements -->
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="shape-tri"></div>
-        <div class="shape-circ"></div>
-        <div class="shape-x">✕</div>
-        <div class="shape-smiley">😊</div>
-        <span class="deco-star star-lime">✦</span>
-        <span class="deco-star star-pink">✶</span>
 
-        <!-- text -->
-        <div class="hero-text">
-            <h1>
-                <span>arte</span><br>
-                <span class="white-word">que nasce</span><span style="color:var(--lime)">✦</span><br>
-                <span>da quebrada,</span><br>
-                <span class="highlight">e transforma</span><br>
+  <!-- ══════════════════════════════════════════════════════
+       MAIN – conteúdo exclusivo desta página (index).
+       Nas demais páginas troque apenas o interior do <main>.
+       ══════════════════════════════════════════════════════ -->
+  <main class="page-content" id="main-content">
+
+
+    <!-- ── SEÇÃO 1: HERO ─────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-heading">
+
+      <!-- decorações (aria-hidden) -->
+      <div class="blob blob-1" aria-hidden="true"></div>
+      <div class="blob blob-2" aria-hidden="true"></div>
+      <div class="blob blob-3" aria-hidden="true"></div>
+      <div class="shape-tri"   aria-hidden="true"></div>
+      <div class="shape-circ"  aria-hidden="true"></div>
+      <div class="shape-x"     aria-hidden="true">✕</div>
+      <div class="shape-smiley" aria-hidden="true">😊</div>
+      <span class="deco-star star-lime" aria-hidden="true">✦</span>
+      <span class="deco-star star-pink" aria-hidden="true">✶</span>
+
+      <!-- Bootstrap grid: 2 colunas no desktop, stack no mobile -->
+      <div class="container-fluid px-4 px-lg-5">
+        <div class="row align-items-center g-0">
+
+          <!-- Texto -->
+          <div class="col-12 col-lg-6">
+            <div class="hero-text py-4">
+              <h1 id="hero-heading">
+                <span>arte</span><br />
+                <span class="white-word">que nasce</span>
+                <span aria-hidden="true" style="color:var(--lime)">✦</span><br />
+                <span>da quebrada,</span><br />
+                <span class="highlight">e transforma</span><br />
                 <span>o mundo.</span>
-            </h1>
-            <p>
+              </h1>
+
+              <p class="mt-4 mb-4">
                 O Artimola é um convênio para artistas iniciantes de 16 a 25 anos,
                 periféricos, de baixa renda ou da comunidade LGBTQIAP+, que desejam
                 transformar talento em trajetória.
-            </p>
-            <div class="hero-btns">
-                <a href="#" class="btn-primary">Quero Participar ↗</a>
-                <a href="#" class="btn-outline">Conheça o Convênio</a>
-            </div>
-        </div>
+              </p>
 
-        <!-- visual -->
-        <div class="hero-visual">
-            <div class="badge-round">
+              <div class="hero-btns d-flex flex-wrap gap-3">
+                <a href="como-participar.html" class="btn-artimola-primary">Quero Participar ↗</a>
+                <a href="convenio.html"        class="btn-artimola-outline">Conheça o Convênio</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual -->
+          <div class="col-12 col-lg-6 d-none d-lg-block">
+            <div class="hero-visual" aria-hidden="true">
+              <div class="badge-round">
                 <span class="globe">🌐</span>
                 PERIFÉRICOS · DIVERSOS · FETENEP
-            </div>
-
-            <div class="people-placeholder">
+              </div>
+              <div class="people-placeholder">
                 <div class="person person-1"></div>
                 <div class="person person-2"></div>
+              </div>
+              <div class="badge-talent">
+                <span class="accent">seu talento.</span><br />
+                nossa rede.<br />o futuro.
+                <span aria-hidden="true" style="color:var(--lime)">✦</span>
+              </div>
             </div>
+          </div>
 
-            <div class="badge-talent">
-                <span>seu talento.</span><br>
-                nossa rede.<br>
-                o futuro.
-                <span style="color:var(--lime)">✦</span>
-            </div>
-        </div>
-
+        </div><!-- /row -->
+      </div><!-- /container -->
     </section>
+    <!-- /hero -->
 
-    <!-- ═══ FEATURE CARDS ═══ -->
-    <section class="features">
-        <div class="feat-card">
-            <span class="feat-icon">✳️</span>
-            <h3>Para quem é</h3>
-            <p>Artistas de 16 a 25 anos, periféricos, de baixa renda ou LGBTQIAP+.</p>
-            <span class="feat-arrow">↗</span>
-        </div>
-        <div class="feat-card">
-            <span class="feat-icon">🌸</span>
-            <h3>Apoio real</h3>
-            <p>Mentorias, formações, materiais, espaços e divulgação.</p>
-            <span class="feat-arrow">↗</span>
-        </div>
-        <div class="feat-card">
-            <span class="feat-icon">⚡</span>
-            <h3>Conexão</h3>
-            <p>Rede de artistas, coletivos e oportunidades no mundo da arte.</p>
-            <span class="feat-arrow">↗</span>
-        </div>
-        <div class="feat-card">
-            <span class="feat-icon">🌻</span>
-            <h3>Representatividade</h3>
-            <p>Valorizamos todas as identidades, corpos e territórios.</p>
-            <span class="feat-arrow">↗</span>
-        </div>
-        <div class="feat-card">
-            <span class="feat-icon">✦</span>
-            <h3>Transformação</h3>
-            <p>Da ideia ao impacto. Da quebrada para o mundo.</p>
-            <span class="feat-arrow">↗</span>
-        </div>
+
+    <!-- ── SEÇÃO 2: FEATURE CARDS ─────────────────── -->
+    <section aria-labelledby="features-heading">
+      <h2 id="features-heading" class="visually-hidden">Por que o Artimola</h2>
+
+      <!-- Bootstrap row sem gutter → blocos colados -->
+      <div class="row g-0">
+        <article class="col-12 col-sm-6 col-lg feat-card"
+                 data-bs-toggle="tooltip"
+                 data-bs-placement="top"
+                 title="Saiba mais sobre quem pode participar">
+          <span class="feat-icon" aria-hidden="true">✳️</span>
+          <h3>Para quem é</h3>
+          <p>Artistas de 16 a 25 anos, periféricos, de baixa renda ou LGBTQIAP+.</p>
+          <span class="feat-arrow" aria-hidden="true">↗</span>
+        </article>
+
+        <article class="col-12 col-sm-6 col-lg feat-card"
+                 data-bs-toggle="tooltip"
+                 data-bs-placement="top"
+                 title="Mentorias, espaços, materiais e mais">
+          <span class="feat-icon" aria-hidden="true">🌸</span>
+          <h3>Apoio real</h3>
+          <p>Mentorias, formações, materiais, espaços e divulgação.</p>
+          <span class="feat-arrow" aria-hidden="true">↗</span>
+        </article>
+
+        <article class="col-12 col-sm-6 col-lg feat-card"
+                 data-bs-toggle="tooltip"
+                 data-bs-placement="top"
+                 title="Rede de artistas e coletivos">
+          <span class="feat-icon" aria-hidden="true">⚡</span>
+          <h3>Conexão</h3>
+          <p>Rede de artistas, coletivos e oportunidades no mundo da arte.</p>
+          <span class="feat-arrow" aria-hidden="true">↗</span>
+        </article>
+
+        <article class="col-12 col-sm-6 col-lg feat-card"
+                 data-bs-toggle="tooltip"
+                 data-bs-placement="top"
+                 title="Todas as identidades, corpos e territórios">
+          <span class="feat-icon" aria-hidden="true">🌻</span>
+          <h3>Representatividade</h3>
+          <p>Valorizamos todas as identidades, corpos e territórios.</p>
+          <span class="feat-arrow" aria-hidden="true">↗</span>
+        </article>
+
+        <article class="col-12 col-sm-6 col-lg feat-card"
+                 data-bs-toggle="tooltip"
+                 data-bs-placement="top"
+                 title="Da ideia ao impacto">
+          <span class="feat-icon" aria-hidden="true">✦</span>
+          <h3>Transformação</h3>
+          <p>Da ideia ao impacto. Da quebrada para o mundo.</p>
+          <span class="feat-arrow" aria-hidden="true">↗</span>
+        </article>
+      </div>
     </section>
+    <!-- /features -->
 
-    <!-- ═══ GALLERY + CTA ═══ -->
-    <section class="gallery-section">
-        <div class="gallery-grid">
-            <div class="gallery-item gallery-item-1">
-                <div class="gallery-placeholder">🧢</div>
-                <div class="gallery-label">⭐</div>
+
+    <!-- ── SEÇÃO 3: CAROUSEL + CTA ────────────────── -->
+    <section aria-labelledby="gallery-heading">
+      <div class="row g-0">
+
+        <!-- Carousel Bootstrap -->
+        <div class="col-12 col-lg-6">
+          <div
+            id="galeriaCarousel"
+            class="carousel carousel-artimola slide"
+            data-bs-ride="carousel"
+            data-bs-interval="3000"
+            aria-label="Galeria de artistas"
+          >
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#galeriaCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#galeriaCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#galeriaCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#galeriaCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
-            <div class="gallery-item gallery-item-2">
-                <div class="gallery-placeholder">🎨</div>
+
+            <!-- Slides -->
+            <div class="carousel-inner">
+              <div class="carousel-item active slide-1">
+                <div class="carousel-slide-inner" aria-hidden="true">🧢</div>
+                <div class="carousel-caption d-none d-md-block pb-4">
+                  <small class="fw-bold" style="color:var(--lime)">Moda periférica</small>
+                </div>
+              </div>
+              <div class="carousel-item slide-2">
+                <div class="carousel-slide-inner" aria-hidden="true">🎨</div>
+                <div class="carousel-caption d-none d-md-block pb-4">
+                  <small class="fw-bold text-white">Arte visual</small>
+                </div>
+              </div>
+              <div class="carousel-item slide-3">
+                <div class="carousel-slide-inner" aria-hidden="true">🕶️</div>
+                <div class="carousel-caption d-none d-md-block pb-4">
+                  <small class="fw-bold text-white">Fotografia</small>
+                </div>
+              </div>
+              <div class="carousel-item slide-4">
+                <div class="carousel-slide-inner" aria-hidden="true">👜</div>
+                <div class="carousel-caption d-none d-md-block pb-4">
+                  <small class="fw-bold" style="color:var(--lime)">Design & artesanato</small>
+                </div>
+              </div>
             </div>
-            <div class="gallery-item gallery-item-3">
-                <div class="gallery-placeholder">🕶️</div>
+
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#galeriaCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#galeriaCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Próximo</span>
+            </button>
+          </div>
+        </div>
+        <!-- /carousel -->
+
+        <!-- CTA -->
+        <div class="col-12 col-lg-6 bg-white">
+          <div class="cta-box h-100 d-flex flex-column justify-content-center">
+            <div class="d-flex gap-3 mb-4" aria-hidden="true">
+              <div class="cta-deco-item cdi-1">🤙</div>
+              <div class="cta-deco-item cdi-2">✦</div>
             </div>
-            <div class="gallery-item gallery-item-4">
-                <div class="gallery-placeholder">👜</div>
-            </div>
+
+            <h2 id="gallery-heading" class="mb-3">
+              A nova geração<br />da arte <em>começa aqui.</em>
+            </h2>
+
+            <p class="mb-4">
+              Se você cria, sente e transforma o mundo ao seu redor,<br />
+              o Artímola é para você.
+            </p>
+
+            <a href="como-participar.html" class="btn-artimola-primary" style="width:fit-content">
+              Quero Participar ↗
+            </a>
+          </div>
         </div>
 
-        <div class="cta-box">
-            <div class="cta-deco">
-                <div class="cta-deco-item cdi-1">🤙</div>
-                <div class="cta-deco-item cdi-2">✦</div>
-            </div>
-            <h2>A nova geração<br>da arte <em>começa aqui.</em></h2>
-            <p>Se você cria, sente e transforma o mundo ao seu redor,<br>o Artímola é para você.</p>
-            <a href="#" class="btn-primary" style="width:fit-content">Quero Participar ↗</a>
-        </div>
+      </div><!-- /row -->
     </section>
+    <!-- /gallery + cta -->
 
-    <!-- ═══ PARTNERS ═══ -->
-    <footer class="partners">
-        <div class="partners-label">Apoio<br>e parceria</div>
-        <div class="partner-logos">
-            <span class="partner-logo big">CULTSP</span>
-            <span class="partner-logo big" style="font-size:1.6rem; color:var(--lime)">SP</span>
-            <span class="partner-logo">🏛️ CIDADE DE<br>SÃO PAULO<br>CULTURA</span>
-            <span class="partner-logo big">Itaú</span>
-            <span class="partner-logo">Fundação<br>Calouste<br>Gulbenkian</span>
-            <span class="partner-logo big">Sesc</span>
-            <span class="partner-logo big">BH PETROBRAS</span>
-            <span class="partner-logo more">+ parceiros</span>
+
+  </main>
+  <!-- /.page-content -->
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER – igual em todas as páginas
+       ══════════════════════════════════════════════════════ -->
+  <footer class="site-footer py-4" aria-label="Apoio e parceria">
+    <div class="container-fluid px-4 px-lg-5">
+      <div class="row align-items-center gy-3">
+
+        <div class="col-12 col-md-auto">
+          <p class="partners-label mb-0">Apoio<br />e parceria</p>
         </div>
-    </footer>
+
+        <div class="col">
+          <ul class="list-unstyled d-flex flex-wrap align-items-center gap-4 mb-0">
+            <li><span class="partner-logo big">CULTSP</span></li>
+            <li><span class="partner-logo sp-logo">SP</span></li>
+            <li><span class="partner-logo" style="line-height:1.3">🏛️ CIDADE DE<br />SÃO PAULO<br />CULTURA</span></li>
+            <li><span class="partner-logo big">Itaú</span></li>
+            <li><span class="partner-logo" style="line-height:1.3">Fundação<br />Calouste<br />Gulbenkian</span></li>
+            <li><span class="partner-logo big">Sesc</span></li>
+            <li><span class="partner-logo big">BH PETROBRAS</span></li>
+            <li><a href="parceiros.html" class="partner-logo more">+ parceiros</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ④ Bootstrap 5 JS Bundle (Popper incluso) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmGi4FE3V/BofnwoHAqdQLot6bdb"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- ⑤ Inicialização de tooltips Bootstrap -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tooltips
+      document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+        new bootstrap.Tooltip(el, { trigger: 'hover focus' });
+      });
+    });
+  </script>
 
 </body>
-
 </html>
